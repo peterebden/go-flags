@@ -37,8 +37,8 @@ type ValueValidator interface {
 	IsValidValue(value string) error
 }
 
-// Defaulter is the interface implemented by types that can provide a dynamic
-// default value at runtime.
+// Defaulter is the interface implemented by types that can provide dynamic
+// default values at runtime.
 type Defaulter interface {
 	Default() ([]string, error)
 }
