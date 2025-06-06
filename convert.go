@@ -40,7 +40,7 @@ type ValueValidator interface {
 // Defaulter is the interface implemented by types that can provide a dynamic
 // default value at runtime.
 type Defaulter interface {
-	Default() []string
+	Default() ([]string, error)
 }
 
 func getBase(options multiTag, base int) (int, error) {

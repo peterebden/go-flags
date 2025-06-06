@@ -314,7 +314,11 @@ func (g *Group) scanStruct(realval reflect.Value, sfield *reflect.StructField, h
 		}
 
 		if defaulter, ok := option.value.Interface().(Defaulter); ok {
-			option.Default = defaulter.Default()
+			def, err := defaulter.Default()
+			if err != nil {
+				return err
+			}
+			option.Default = def
 		}
 
 		g.options = append(g.options, option)
